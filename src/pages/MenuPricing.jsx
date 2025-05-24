@@ -5,8 +5,15 @@ const MenuPricing = () => {
   const [cakes, setCakes] = useState([]);
 
   useEffect(() => {
-    fetch("../src/data/data.json")
-      .then((response) => response.json())
+    const url = "https://683171ef6205ab0d6c3c5308.mockapi.io/data";
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch cake data");
+        }
+        return response.json();
+      })
       .then((data) => setCakes(data))
       .catch((error) => console.error("Error loading cake data:", error));
   }, []);

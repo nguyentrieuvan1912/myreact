@@ -6,12 +6,16 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch("../src/data/data.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const foundProduct = data.find((p) => p.id === parseInt(id));
-        setProduct(foundProduct);
+    const url = `https://683171ef6205ab0d6c3c5308.mockapi.io/data/${id}`;
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch product data");
+        }
+        return response.json();
       })
+      .then((data) => setProduct(data))
       .catch((error) => console.error("Error loading product data:", error));
   }, [id]);
 
@@ -19,7 +23,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <h2>Chi tiet san pham: </h2>
+      <h2>Chi tiết sản phẩm: </h2>
       <h2>{product.name}</h2>
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>

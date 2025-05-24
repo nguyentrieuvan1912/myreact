@@ -7,8 +7,15 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("../src/data/data.json") // Đọc dữ liệu từ file JSON
-      .then((response) => response.json())
+    const url = "https://683171ef6205ab0d6c3c5308.mockapi.io/data";
+    
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.json();
+      })
       .then((data) => setProducts(data))
       .catch((error) => console.error("Error loading data:", error));
   }, []);
