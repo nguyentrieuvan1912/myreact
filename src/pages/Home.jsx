@@ -7,28 +7,25 @@ const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const url = "https://683171ef6205ab0d6c3c5308.mockapi.io/data";
-    
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        return response.json();
-      })
-      .then((data) => setProducts(data))
-      .catch((error) => console.error("Error loading data:", error));
+    const fetchData = async () => {
+      try {
+        const res = await fetch("https://683171ef6205ab0d6c3c5308.mockapi.io/data");
+        if (!res.ok) throw new Error("Failed to fetch data");
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
     <div>
-      <div className="row">
-        <img src="../src/images/banner.jpg" alt="" className="banner w-100" />
-      </div>
+      <img src="../src/images/banner.jpg" alt="Banner" className="banner w-100" />
 
-      <div className="row">
-        <h2 className="text-center my-4">EXPLORE OUR CAKES</h2>
-      </div>
+      <h2 className="text-center my-4">EXPLORE OUR CAKES</h2>
 
       <div className="row">
         {products.map((product) => (

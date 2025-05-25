@@ -1,5 +1,4 @@
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
 }
@@ -8,12 +7,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Đảm bảo chiều cao ít nhất bằng viewport */
 }
 
 .content {
     flex: 1;
-    /* Đẩy footer xuống dưới */
 }
 
 .footer {
@@ -23,37 +20,33 @@ body {
     padding: 10px 0;
 }
 
-.row .banner{
+.row .banner {
     background-size: cover;
     background-position: center;
     height: 400px;
     margin-top: -30px;
-    
 }
 
 .imgsp {
     width: 282px;
     height: 200px;
-    
-    /* Đảm bảo hình ảnh không bị méo */
     margin-right: 30px;
 }
 
 .product-detail {
     max-width: 800px;
     margin: 50px auto;
-    /* Căn giữa trang */
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     background-color: #fff;
+    text-align: center;
 }
 
 .product-detail h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    text-align: center;
     color: #333;
 }
 
@@ -70,7 +63,6 @@ body {
     line-height: 1.6;
     color: #555;
     margin-bottom: 10px;
-    text-align: center;
 }
 
 .product-detail p.price {
@@ -81,17 +73,13 @@ body {
 
 .button-group {
     display: flex;
-    justify-content: space-between;
-    /* Tạo khoảng cách giữa các nút */
     gap: 15px;
-    /* Khoảng cách giữa các nút */
+    justify-content: space-between;
 }
 
 .button-group .btn {
     flex: 1;
-    /* Mỗi nút chiếm 50% chiều rộng */
     text-align: center;
-    /* Căn giữa nội dung trong nút */
 }
 
 .cake-list {
@@ -103,15 +91,12 @@ body {
 
 .menu-header {
     text-align: center;
-    /* Căn giữa nội dung */
     margin-bottom: 20px;
-    /* Thêm khoảng cách dưới */
 }
 
 .menu-header h2 {
     font-size: 2rem;
     margin-bottom: 10px;
-    /* Khoảng cách giữa tiêu đề và đoạn văn */
     color: #333;
 }
 
@@ -121,60 +106,59 @@ body {
 }
 
 .empty-cart-message {
-  font-size: 1.5rem;
-  color: #555;
-  text-align: center;
-  margin-top: 20px;
+    font-size: 1.5rem;
+    color: #555;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .menu-header + p.empty-cart-message {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh; /* Chiều cao để căn giữa theo chiều dọc */
-  margin: 0; /* Loại bỏ khoảng cách mặc định */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
 }
 
 .cart-count {
-  background-color: red;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2px 6px;
-  margin-left: 5px;
-  vertical-align: top;
+    background-color: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    margin-left: 5px;
+    vertical-align: top;
 }
 
 .list-group-item img {
-  border-radius: 8px;
+    border-radius: 8px;
 }
 
 .list-group-item h5 {
-  margin: 0;
-  font-size: 1.2rem;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
 .list-group-item p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
 }
 
 .text-end h4 {
-  font-weight: bold;
-  color: #333;
+    font-weight: bold;
+    color: #333;
 }
 
 .navbar {
     position: fixed;
     top: 0;
-    z-index: 9999;   
+    z-index: 9999;
 }
 
 .cart-container {
-  max-width: 1200px; /* Giới hạn chiều rộng của nội dung */
-  margin: 0 auto; /* Căn giữa nội dung */
-  padding: 20px; /* Thêm khoảng cách bên trong */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
-

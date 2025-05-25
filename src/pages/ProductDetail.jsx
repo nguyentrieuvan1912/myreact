@@ -6,24 +6,25 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const url = `https://683171ef6205ab0d6c3c5308.mockapi.io/data/${id}`;
+    const fetchProduct = async () => {
+      try {
+        const res = await fetch(`https://683171ef6205ab0d6c3c5308.mockapi.io/data/${id}`);
+        if (!res.ok) throw new Error("Failed to fetch product data");
+        const data = await res.json();
+        setProduct(data);
+      } catch (err) {
+        console.error("Error loading product data:", err);
+      }
+    };
 
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch product data");
-        }
-        return response.json();
-      })
-      .then((data) => setProduct(data))
-      .catch((error) => console.error("Error loading product data:", error));
+    fetchProduct();
   }, [id]);
 
   if (!product) return <p>Product not found</p>;
 
   return (
     <div className="product-detail">
-      <h2>Chi tiết sản phẩm: </h2>
+      <h2>Chi tiết sản phẩm:</h2>
       <h2>{product.name}</h2>
       <img src={product.image} alt={product.name} />
       <p>{product.description}</p>
